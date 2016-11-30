@@ -5,46 +5,44 @@ public class WormBehaviour : MonoBehaviour {
 
 	Transform playerTransform;
 	Transform myTransform;
-	Vector3 moveDirectionVertical = Vector3.down;
-	Vector3 moveDirectionHorizontal = Vector3.left;
-	float speedVertical = 1;
-	float speedHorizontal = 0;
-	bool isLeft = false;
+	float speed = 0.1f;
+	float moveCooldown = 4;
+	Vector3 direction;
+	bool Moving = false;
 
 	void Start () 
 	{
-		playerTransform = GameObject.Find ("PlayerGraphic").transform;
+		direction = direction.normalized;
+		playerTransform = GameObject.Find ("Drillbert").transform;
 		myTransform = transform;
-
 	}
 	
 
 	void Update () 
 	{
-	
-		if (playerTransform.position.x < myTransform.position.x) 
+		if (moveCooldown <= Time.time) 
 		{
-			speedHorizontal = 2f;
+			Moving = !Moving;
+			moveCooldown = Time.time + 4f;
+		}
+			
+		if (Moving == true) 
+		{
+			speed = 0.1f;
+		} 
+		else 
+		{
+			speed = 0;
+			direction = playerTransform.transform.position - myTransform.position;
+
+			Vector3 vectorToTarget = playerTransform.position - myTransform.position;
+			float angle = Mathf.Atan2 (vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+			Quaternion q = Quaternion.AngleAxis (angle, Vector3.forward);
+			transform.rotation = Quaternion.Slerp (transform.rotation, q, Time.deltaTime * 5);
 		}
 
-		if (playerTransform.position.x > myTransform.position.x) 
-		{
-			speedHorizontal = -2f;
-		}
-
-		if (playerTransform.position.y < myTransform.position.y) 
-		{
-			speedVertical = 2f;
-		}
-
-		if (playerTransform.position.y > myTransform.position.y) 
-		{
-			speedVertical = -2f;
-		}
-
-
-
-		myTransform.Translate (moveDirectionHorizontal * Time.deltaTime * speedHorizontal);
-		myTransform.Translate (moveDirectionVertical * Time.deltaTime * speedVertical);
+		Vector3 position = transform.position;
+		position += direction * speed * Time.deltaTime;
+		transform.position = position;
 	}
 }
