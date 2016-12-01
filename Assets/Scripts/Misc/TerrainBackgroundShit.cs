@@ -21,9 +21,9 @@ public class TerrainBackgroundShit : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D (Collider2D other)
+	void OnCollisionEnter2D (Collision2D other)
 	{
-		if(other.CompareTag("Drill"))
+		if(other.collider.CompareTag("Drill"))
 		{
 			mySpriteRenderer.sprite = poopDirt;
 			myCollider.enabled = false;

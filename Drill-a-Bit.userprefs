@@ -1,12 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyAI\MoleBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Misc\TerrainBackgroundShit.cs">
     <Files>
-      <File FileName="Assets\Scripts\Misc\DrillDestroy.cs" Line="15" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\WormBehaviour.cs" Line="44" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\MoleBehaviour.cs" Line="38" Column="4" />
-      <File FileName="Assets\Scripts\Player\PlayerController.cs" Line="31" Column="98" />
-      <File FileName="..\DragonSpirit\Assets\Scripts\Enemies\RyanAI\AlligatorBehaviour.cs" Line="11" Column="2" />
+      <File FileName="Assets\Scripts\Misc\CameraScroll.cs" Line="20" Column="1" />
+      <File FileName="Assets\Scripts\Misc\TerrainBackgroundShit.cs" Line="24" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
